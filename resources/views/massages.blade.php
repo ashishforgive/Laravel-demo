@@ -1,10 +1,10 @@
-extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 		<h1>Messages</h1>
-		@if(count($massages) > 0)
+		@if(count($massage) > 0)
 
-			@foreach($massages as $messages)
+			@foreach($massage as $messages)
 
 			<ul class="list-group">
 				<li class="list-group-item">Name: {{ $messages->name }}</li>
