@@ -13,4 +13,33 @@ class myproductsController extends Controller
 
     			return view('product')->with('myproduct', $myproducts);
     		}
+
+    // Upload image
+    
+    	public function add(request $request){
+    		$this->validate($request, [ 
+
+    		'title' => 'required',
+
+    		'desc' => 'required'
+
+    		]);
+
+    	   	// Create a New Messages
+    		$myproducts = new myproduct;
+    		$myproducts->title = $request->input('title');
+    		$myproducts->desc = $request->input('desc');
+
+    		if($request->hasFile('image')){
+    			 $myproducts->image = $request->file('image')->store('public/uploads');
+
+    		}
+    		//$request->all();
+    		$myproducts->save();
+
+    		//Redirect
+    		return redirect('/home')->with('SUCCESS', 'Product uploaded');	
+
+    	}	
+    	   
 }

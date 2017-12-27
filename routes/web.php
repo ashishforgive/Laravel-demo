@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 Route::get('/about', function () {
     return view('about');
@@ -26,6 +26,15 @@ Route::get('/contact', function () {
 Route::post('/contact/submit', 'massagesController@submit');
 Route::get('/massages', 'massagesController@getmassage');
 Route::get('/product', 'myproductsController@getmyproducts');
+Route::post('/home/add', 'myproductsController@add');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
 @section('content')
 
@@ -167,12 +167,19 @@
         <div class="item  col-xs-12 col-md-6 col-lg-4">
             <div class="thumbnail">
             	<div class="hovereffect">
+            	
 		                <img class="group list-group-image img-responsive" src="{{ asset('images/fff.png') }}" alt="" />
 		                <div class="overlay">
-			                <p class="group inner list-group-item-text">
-			                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-			                </p>
-			            </div>           
+		                	@if(count($myproduct) > 0)
+
+								@foreach($myproduct as $p)
+					                <p class="group inner list-group-item-text">
+					                        {{ $p->desc }}
+					                </p>
+			               	 	@endforeach
+
+							@endif
+			            </div>              
                  </div>
                 <div class="caption">
                     @foreach($myproduct as $p)
