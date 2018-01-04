@@ -14,6 +14,13 @@ class myproductsController extends Controller
     			return view('product')->with('myproduct', $myproducts);
     		}
 
+    		 public function getmyproductsonindex(){
+    			$myproducts = myproduct::all(); 
+
+    			return view('/index')->with('myproduct', $myproducts);
+    		}
+
+
     // Upload image
     
     	public function add(request $request){

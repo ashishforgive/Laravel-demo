@@ -26,6 +26,8 @@ Route::get('/contact', function () {
 Route::post('/contact/submit', 'massagesController@submit');
 Route::get('/massages', 'massagesController@getmassage');
 Route::get('/product', 'myproductsController@getmyproducts');
+Route::get('/', 'myproductsController@getmyproductsonindex');
+
 Route::post('/home/add', 'myproductsController@add');
 
 Auth::routes();
